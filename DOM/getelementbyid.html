@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="intro"></h1>
+    
+    <script>
+        function getelement(){
+            document.getElementById("intro").innerHTML="How to set the contents for elements using elemeny by id method.";
+        }
+        function invoke(){
+            var x=document.getElementById("demo").innerHTML;
+            document.getElementById("change").innerHTML=x;
+        }
+    </script>
+    <h2>Finding HTML elements by id</h2>
+    <p>This example demonstrates the getelementbyid method</p>
+    <button onclick="getelement()">Get h1</button>
+    <h2>Finding HTML element by id </h2>
+    <p id="demo">Hello world</p>
+    <h1 id="change">DOM</h1>
+    <button onclick="invoke()">Change h1 to p</button>
+</body>
+</html>

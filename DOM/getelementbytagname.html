@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Finding HTML elements by tag name</h2>
+    <p>Hello world</p>
+    <p>This example demonstrates the getelementbytagname method</p>
+    <p>basics of DOM</p>
+    <h1 id="demo"></h1>
+    <button onclick="invoke()">change</button>
+    <script>
+        function invoke(){
+            var x=document.getElementsByTagName("p");
+            document.getElementById("demo").innerHTML=x[2].innerHTML;
+        }
+    </script>
+</body>
+</html>

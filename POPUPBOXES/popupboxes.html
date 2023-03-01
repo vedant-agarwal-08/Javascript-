@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myalertbox(){
+            alert("I am an alert box");
+        }
+        function myconfirmbox(){
+            let text;
+            if(confirm("press a button!")==true){
+                text="You pressed ok";
+            }else{
+                text="You cancelled";
+            }
+            document.write("<h1>"+text +"</h1>");
+        }
+        function mypromptbox(){
+            var name;
+            name=window.prompt("please enter your name");
+            document.write("<h1>Hello, " +name+ " welcome to javascript programming!</h1>");
+        }
+        
+        var firstnumber,secondnumber,number1,number2,sum;
+            
+            
+        firstnumber= window.prompt("please enter number 1");
+        secondnumber= window.prompt("please enter number 2");
+        number1=parseInt(firstnumber);
+        number2=parseInt(secondnumber);
+        sum=number1+number2;
+        document.write("<h1>The sum is "+sum+"</h1>");
+            
+        
+    </script>
+    <h2>Javascript alert box</h2>
+    <button onclick="myalertbox()">Show alert box</button>
+    <h2>Javascript confirm box</h2>
+    <button onclick="myconfirmbox()">Show confirm box</button>
+    <h2>Javascript prompt box</h2>
+    <button onclick="mypromptbox()">Show prompt box</button>
+    
+</body>
+</html>

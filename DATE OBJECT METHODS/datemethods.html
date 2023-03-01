@@ -1,0 +1,24 @@
+
+<!-- calculation of number of fays between two date -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date1=new Date("06/30/2019");
+        var date2=new Date("07/30/2019")
+        //to calculate time difference between two dates
+        var difference_in_time=date2.getTime()-date1.getTime();
+        //to calculate number of days between two dates
+        var difference_in_days=difference_in_time/(1000*3600*24);
+        //to dislpay final no. of days
+        document.write("Total number of days between dates <br>"+date1+"<br> and <br>"+date2+"is:<br>"+difference_in_days);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+div {
+width: 300px;
+height: 100px;
+background-color: yellow;
+box-shadow: 10px 10px 5px #888888;
+text-align:center;
+font-family:Felix Titling;
+color:hotpink;
+font-size:50px; }
+</style>
+<script type="text/javascript">
+var t=""; 
+function startTime()
+{ var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds(); // add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+h=checkTime(h);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',2000); }
+function checkTime(i){
+     if (i<10) i="0" + i; return i; }
+function stop(){ 
+    clearTimeout(t); }
+</script> 
+</head>
+<body onload="startTime();" onunload="stop();">
+<div id="txt" ></div>
+</body>
+</html>

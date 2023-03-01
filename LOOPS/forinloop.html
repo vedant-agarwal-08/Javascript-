@@ -1,0 +1,23 @@
+<!-- key value pair -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript for in loop</h1>
+    <p>This statement loops through the properties of an object</p>
+    <script>
+        const person={fname:"John",lname:"Doe",age:25};
+        let txt="";
+        for(let x in person){
+            txt=txt+person[x]+" ";
+        }
+        document.write("<h1>"+txt+"</h1>");
+    </script>
+</body>
+</html>

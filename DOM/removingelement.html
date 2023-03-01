@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The remove() method</h1>
+    <p>The remove() method removes the element from the DOM</p>
+    <p id="demo">click the button, and this photograph will be removed from the DOM</p>
+    <button onclick="myfunction()">Remove heading 1</button>
+    <script>
+        function myfunction(){
+            myobj=document.getElementsByTagName("h1")[0];
+            myobj.remove();
+        }
+    </script>
+</body>
+</html>
