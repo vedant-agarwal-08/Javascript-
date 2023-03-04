@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="message.html">
+        username: <input id="uname" placeholder="username" type="text"><br><br>
+        <label id="lbluser" style="color:red; visibility: hidden;">Invalid Username</label>
+        <button onclick="validate()" type="button">Submit</button>
+        <script>
+        function validate(){
+            var username=document.getElementById("uname").value;
+            var regx=/E00/;
+            // or regx=new RegExp("E00","i");
+            //  /[sdp]imple this means the name can start with sdp but should be followed by imple.
+            // /[a-x]imple/ any chanracter from a-x followed by imple.
+            // /[a-z A-Z]/
+            // /[0-9]/
+            // [^1abc]abc/ we don't want 1,a,b or c.
+            if(regx.test(username)){
+                alert("valid username")
+            }else{
+                alert("invalid username");
+                document.getElementById("lbluser").style.visibility="visible";
+            }
+        }
+
+
+        </script>
+    </form>
+</body>
+</html>

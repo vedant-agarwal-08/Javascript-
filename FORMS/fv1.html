@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+x = document.myForm.fname.value;
+y=document.myForm.mno.value;
+if (test(x))
+{
+if (test1(y))
+{
+return true;
+}}
+return false;
+}
+function test(x)
+{
+if (x.length==0) {
+alert("Name must be filled out");
+return false;
+}
+document.getElementById("outtab").rows[1].cells[1].innerHTML=x;
+return true;
+}
+function test1(y)
+{
+if (y.length==0) {
+alert("mobile must be filled out");
+return false;
+}
+document.getElementById("outtab").rows[2].cells[1].innerHTML=y;
+return true;
+}
+</script>
+</head>
+<body>
+<form name="myForm" onsubmit="return validateForm()"
+method="post">
+Name: <input type="text" name="fname">
+<br/> <br/>
+Mobile number : <input type="text" name="mno">
+<br/> <br/>
+<input type="submit" value="Submit">
+</form>
+<br/><br/><br/>
+<table id ="outtab" border ="2" bordercolor="blue">
+<tr><td colspan="2">FORM OUTPUT</td></tr>
+<tr><td>Name</td><td></td></tr>
+<tr><td>Mobile number</td><td></td></tr>
+</table>
+<button onclick="validateForm()">Display</button>
+</body>
+</html>

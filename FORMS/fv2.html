@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function validate(){
+       var sname=document.getElementById("sname").value;
+    //    var rnumber=document.getElementById("rno").value;
+    //    var dob=document.getElementById("dob").value;
+    //    var email=document.getElementById("email").value;
+    //    var taddress=document.getElementById("taddress").value;
+    //    var paddress=document.getElementById("paddress").value;
+    //    var pnumber=document.getElementById("pno").value;
+    //    var regx=/^([a-z 0-9\.-]+)@([a-z0-9-]+).([a-z]{2,8})(.[a-z]{2,8})?$/
+       if(sname.trim().length>30){
+        document.getElementById("lbltext")
+        style.visibility="visible";
+        return false;
+       }
+    //    else if(pnumber.trim().toString().length!==10){
+    //     return false;
+    //    }
+    //    else if(rnumber=="@!#$%^&*"){
+    //     return false;
+    //    }
+    //    else if(regx.test(text)){
+        
+    //    }
+    }
+</script>
+<body>
+    <form  onsubmit="return validate()" >
+        Name:<input id="sname" placeholder="Name" type="text"><br><br>
+        <label id="lbltext" style="color:red; visibility: hidden;">Invalid</label><br>
+        <!-- Register Number:<input id="rno" placeholder="Register Number" type="text"><br><br>
+        DOB:<input id="dob" placeholder="Date of birth" type="date"><br><br>
+        Email:<input id="email" placeholder="Email" type="email"><br><br>
+        Temporary Address:<input id="taddress" placeholder="Temporary Address" type="text"><br><br>
+        Permanent Address:<input id="paddress" placeholder="Permanent Address" type="text"><br><br>
+        Phone Number:<input id="pno" placeholder="Phone number" type="tel"><br><br> -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

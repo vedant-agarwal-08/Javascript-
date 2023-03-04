@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        // element selector
+        $(document).ready(function(){
+            $("p").css("background-color","pink");
+        })
+
+        // id selector
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#test").hide();
+            })
+            
+        })
+
+        // class selector
+        $(document).ready(function(){
+            $("button").click(function(){
+                $(".test").hide();
+            })
+        })
+        // $(document).ready(function(){
+        //     $("p").click(function(){
+        //         $(this).hide();
+        //     });
+        // });
+    </script>
+</head>
+<body>
+    <h1 id="test">ID selector </h1>
+    <p class="test">This is first paragraph.</p>
+    <p>This is second paragraph.</p>
+    <p>This is third paragraph.</p>
+    <button>Click me</button>
+</body>
+</html>

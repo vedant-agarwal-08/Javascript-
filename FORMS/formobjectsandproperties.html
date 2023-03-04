@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform">
+        username: <input type="text" name="m_username_field"><br><br>
+        password: <input type="password" name="m_password_field"><br><br>
+        <input type="submit" name="m_sbtn" value="reset" onclick="resetaForm()"><br><br>
+        <script>
+           var form=document.myform; 
+        //    console.dir(form);
+        //    console.log(form.length);
+        //    console.log(form.elements[0]);
+        //    console.log(form.method);
+        //    console.log(form.action);
+
+        //instead of this function we can directly put type=reset in button tag.
+        function resetForm(){
+            form.reset();
+        }
+
+
+        </script>
+    </form>
+</body>
+</html>
