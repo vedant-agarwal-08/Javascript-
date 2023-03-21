@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration Form</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+$('#permanent_address').prop('disabled', true);
+$('#same_as_temp').change(function() {
+if (this.checked) {
+$('#permanent_address').val($('#temp_address').val());
+$('#permanent_address').prop('disabled', true);
+} else {
+$('#permanent_address').prop('disabled', false);
+$('#permanent_address').val('');
+}
+});
+$('#register_form').submit(function(e) {
+e.preventDefault();
+var valid = true;
+var name = $('#name').val();
+var reg_num = $('#reg_num').val();
+var dob = $('#dob').val();
+var program = $('#program').val();
+var email = $('#email').val();
+var temp_address = $('#temp_address').val();
+var permanent_address = $('#permanent_address').val();
+var phone = $('#phone').val();
+if (!/^[a-zA-Z ]{1,30}$/.test(name)) {
+alert("Please enter a valid name.");
+valid = false;
+}
+if (!/^[a-zA-Z0-9]+$/.test(reg_num)) {
+alert("Please enter a valid register number.");
+valid = false;
+}
+if (!/^\d{10}$/.test(phone)) {
+alert("Please enter a valid 10-digit phone number.");
+valid = false;
+}
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+alert("Please enter a valid email address.");
+valid = false;
+}
+if ($('#same_as_temp').is(':not(:checked)') &&
+permanent_address === '') {
+alert("Please enter a valid permanent address.");
+valid = false;
+}
+if (valid) {
+alert("Registration successful!");
+// You can submit the form here.
+}
+});
+});
+</script>
+</head>
+<body>
+<form id="register_form">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" maxlength="30" required>
+<br><br>
+<label for="reg_num">Register Number:</label>
+<input type="text" id="reg_num" name="reg_num" required>
+<br><br>
+<label for="dob">Date of Birth:</label>
+<input type="date" id="dob" name="dob" required>
+<br><br>
+<label for="program">Program:</label>
+<input type="text" id="program" name="program" required>
+<br><br>
+<label for="email">Email ID:</label>
+<input type="email" id="email" name="email" required>
+<br><br>
+<label for="temp_address">Temporary Address:</label>
+<textarea id="temp_address" name="temp_address" required></textarea>
+<br><br>
+<label for="permanent_address">Permanent Address:</label>
+<textarea id="permanent_address" name="permanent_address"></textarea>
+<br><br>
+<input type="checkbox" id="same_as_temp" name="same_as_temp">Permanent
+address is same as temporary address.
+<br><br>
+<label for="phone">Phone:</label>
+<input type="number" id="phone" name="phone" required>
+<br><br>
+<input type="submit" value="Submit">

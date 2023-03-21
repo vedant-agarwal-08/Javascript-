@@ -7,20 +7,17 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-        $(function(){
-            $("ul li:eq(3)").css("background-color","yellow");
-        });
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").hide("slow",function(){
+                    alert("the paragraph is now hidden");
+                })
+            })
+        })
     </script>
 </head>
 <body>
-    <h1>welcome to my web page</h1>
-    <ul>
-       
-       <li>Apple</li>
-       <li>grapes</li>
-       <li>orange</li>
-       <li>banana</li>
-       <li>kiwi</li>
-    </ul>
+    <button>Hide</button>
+    <p>This is a paragraph with the content.</p>
 </body>
 </html>

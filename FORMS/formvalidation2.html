@@ -21,6 +21,7 @@
             else if(password.value.trim()=="")
             {
                 alert("Blank password");
+                document.getElementById("lbluser").style.visibility="visible";
                 return false;
             }
             else if(password.value.trim().length<5)

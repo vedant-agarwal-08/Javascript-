@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 3</title>
+    <style>
+      .phrase,
+      .filter,
+      .but {
+        padding: 4px 10px;
+      }
+      #phrase {
+        width: 10%;
+      }
+      #filter {
+        width: 7%;
+      }
+      #words {
+        margin-top: 15px;
+      }
+      .word {
+        color: red;
+        border: 2px dotted red;
+        margin: 0 5px;
+        margin-top: 15px;
+        font-size: 23px;
+        padding: 5px 7px;
+      }
+      .string {
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sentence Reverser!</h1>
+    <div class="phrase">
+      <label for="phrase">Phrase:</label>
+      <input type="text" id="phrase" />
+    </div>
+    <div class="filter">
+      <label for="filter">Filter: </label>
+      <input type="text" id="filter" />
+    </div>
+    <div class="but"><button>Go</button></div>
+    <div id="words"></div>
+    <div class="string"></div>
+  </body>
+  <script>
+    const phraseInput = document.querySelector("#phrase");
+    const filterInput = document.querySelector("#filter");
+    const wordDiv = document.querySelector("#words");
+    const strings = document.querySelector(".string");
+    const goButton = document.querySelector(".but");
+    const span = document.createElement("span");
+    const sentenceReverse = () => {
+      const phraseText = phraseInput.value;
+      const filterText = filterInput ? filterInput.value : null;
+      // console.log(phraseText);
+      let wordsArray = phraseText.split(" ");
+      wordsArray.reverse();
+      console.log(wordsArray);
+      console.log(filterText);
+      const filtered = [];
+      if (filterText) {
+        for (i in wordsArray) {
+          if (!wordsArray[i].toLowerCase().includes(filterText.toLowerCase())) {
+            filtered.push(wordsArray[i]);
+          }
+        }
+        console.log(filtered);
+        strings.innerHTML += `${filtered.length} words filtered out.`;
+        wordsArray = filtered;
+      }
+      for (let i = 0; i < wordsArray.length; i++) {
+        if (i % 2 == 0) {
+          wordDiv.innerHTML += `<span
+class='word'><u>${wordsArray[i]}</u></span>`;
+        } else {
+          wordDiv.innerHTML += `<span
+class='word'>${wordsArray[i]}</span>`;
+        }
+      }
+    };
+    goButton.addEventListener("click", sentenceReverse);
+  </script>
+</html>

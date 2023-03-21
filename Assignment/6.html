@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #Student_table {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="student_form">
+      <label for="student_name">Student Name:</label>
+      <input type="text" id="student_name" name="student_name" /><br /><br />
+      <label for="dob_day">Date of Birth:</label>
+      <input type="number" id="dob_day" name="dob_day" min="1" max="31" /> /
+      <input type="number" id="dob_month" name="dob_month" min="1" max="12" />
+      /
+      <input
+        type="number"
+        id="dob_year"
+        name="dob_year"
+        min="1900"
+        max="2023"
+      /><br /><br />
+      <label for="father_name">Father's Name:</label>
+      <input type="text" id="father_name" name="father_name" /><br /><br />
+      <label for="mother_name">Mother's Name:</label>
+      <input type="text" id="mother_name" name="mother_name" /><br /><br />
+      <label for="blood_group">Blood Group:</label>
+      <select id="blood_group" name="blood_group">
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+      <br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <label for="mobile">Mobile:</label>
+      <input type="tel" id="mobile" name="mobile" /><br /><br />
+      <label for="door_no">Door No:</label>
+      <input type="text" id="door_no" name="door_no" /><br /><br />
+      <label for="street_name">Street Name:</label>
+      <input type="text" id="street_name" name="street_name" /><br /><br />
+      <label for="place_name">Place Name:</label>
+      <input type="text" id="place_name" name="place_name" /><br /><br />
+      <label for="pincode">Pincode:</label>
+      <input type="text" id="pincode" name="pincode" /><br /><br />
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" /><br /><br />
+      <label for="ug_degree">UG Degree:</label>
+      <input type="text" id="ug_degree" name="ug_degree" /><br /><br />
+      <label for="pg_degree">PG Degree:</label>
+      <input type="text" id="pg_degree" name="pg_degree" /><br /><br />
+      <label for="other_degree">Other Degree:</label>
+      <input type="text" id="other_degree" name="other_degree" /><br /><br />
+      <input type="button" id="submitBtn" value="Submit" />
+    </form>
+    <div id="Student_table">
+      <table border="2">
+        <thead>
+          <tr>
+            <th rowspan="2">Student Name</th>
+            <th colspan="3">Date of Birth</th>
+            <th colspan="2">Parents</th>
+            <th rowspan="2">Blood Group</th>
+            <th rowspan="2">Email</th>
+            <th rowspan="2">Phone Number</th>
+            <th colspan="5">Address</th>
+            <th colspan="3">Degree</th>
+          </tr>
+          <tr>
+            <th>Date</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Father</th>
+            <th>Mother</th>
+            <th>Door No</th>
+            <th>Street Name</th>
+            <th>Place Name</th>
+            <th>Pincode</th>
+            <th>Country</th>
+            <th>Ug Degree</th>
+            <th>Pg Degree</th>
+            <th>Other Degree</th>
+          </tr>
+        </thead>
+        <tbody id="table_body"></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var students = [];
+      $("#submitBtn").click(function () {
+        // e.preventDefault();
+        var name = $("#student_name").val();
+        var dob_day = $("#dob_day").val();
+        var dob_month = $("#dob_month").val();
+        var dob_year = $("#dob_year").val();
+        var father_name = $("#father_name").val();
+        var mother_name = $("#mother_name").val();
+        var blood_group = $("#blood_group").val();
+        var email = $("#email").val();
+        var tel = $("#mobile").val();
+        var door_no = $("#door_no").val();
+        var street_name = $("#street_name").val();
+        var place_name = $("#place_name").val();
+        var pincode = $("#pincode").val();
+        var country = $("#country").val();
+        var ug_degree = $("#ug_degree").val();
+        var pg_degree = $("#pg_degree").val();
+        var other_degree = $("#other_degree").val();
+        var student = {
+          names: name,
+          date: dob_day,
+          month: dob_month,
+          year: dob_year,
+          parents: {
+            father: father_name,
+            mother: mother_name,
+          },
+          blood_group: blood_group,
+          email: email,
+          tel: tel,
+          address: {
+            door_no: door_no,
+            street_name: street_name,
+            place_name: place_name,
+            pincode: pincode,
+            country: country,
+          },
+          degree: {
+            ug_degree: ug_degree,
+            pg_degree: pg_degree,
+            other_degree: other_degree,
+          },
+        };
+        students.push(student);
+        $("table tbody tr").remove();
+        for (i in students) {
+          var tableBody = $("#table_body");
+          tableBody.append(
+            `<tr>
+<td>${students[i].names}</td>
+<td>${students[i].date}</td>
+<td>${students[i].month}</td>
+<td>${students[i].year}</td>
+<td>${students[i].parents.father}</td>
+<td>${students[i].parents.mother}</td>
+<td>${students[i].blood_group}</td>
+<td>${students[i].email}</td>
+<td>${students[i].tel}</td>
+<td>${students[i].address.door_no}</td>
+<td>${students[i].address.street_name}</td>
+<td>${students[i].address.place_name}</td>
+<td>${students[i].address.pincode}</td>
+<td>${students[i].address.country}</td>
+<td>${students[i].degree.ug_degree}</td>
+<td>${students[i].degree.pg_degree}</td>
+<td>${students[i].degree.other_degree}</td>
+</tr>`
+          );
+        }
+      });
+    });
+  </script>
+</html>

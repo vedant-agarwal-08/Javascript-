@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            a=document.myForm.fname.value;
+            b=document.myForm.reg_num.value;
+            c=document.myForm.dob.value;
+            d=document.myForm.program.value;
+            e=document.myForm.temp_address.value;
+            f=document.myForm.permanent_address;
+            if(test(a)){
+                if(test1(b)){
+                    if(test2(c)){
+                        if(test3(d)){
+                            if(test(e)){
+                                if(test(f)){
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        function test(a){
+            if(x.length==0){
+                alert("")
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    <br><br>
+    Registration Number: <input type="text" name="reg_num">
+    <br><br>
+    Date of Birth: <input type="date" name="dob">
+    <br><br>
+    Program: <input type="text" name="program">
+    <br><br>
+    Email: <input type="email" name="email">
+    <br><br>
+    Temporary Address: <input type="text" name="temp_address">
+    <br><br>
+    Permanent Address: <input type="text" name="permanent_text">
+    <br><br>
+    <button type="submit" onclick="validateForm()">Submit</button>
+    </form>
+</body>
+</html>

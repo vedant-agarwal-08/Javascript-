@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            x=document.myForm.fname.value;
+            y=document.myForm.mno.value;
+            z=document.myForm.gender;
+            if(test(x)){
+                if(test1(y)){
+                    if(test2(z)){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        function test(x){
+            if(x.length==0){
+                alert("Name must be filled out");
+                return false;
+            }
+            document.getElementById("outtab").rows[1].cells[1].innerHTML=x;
+            return true;
+        }
+        function test1(y){
+            if(y.length==0){
+                alert("mobile must be filled out");
+                return false;
+            }
+            document.getElementById("outtab").rows[2].cells[1].innerHTML=y;
+            return true;
+        }
+        function test2(z){
+            for(var i=0;i<z.length;i++){
+                if(z[i].checked){
+                    document.getElementById("outtab").rows[3].cells[1].innerHTML=z[i].value;
+                    return true;
+                }
+            }
+            alert("please choose your gender");
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    <br><br>
+    Mobile number: <input type="text" name="mno">
+    <br><br>
+    Your Gender:
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="female">female <br>
+    <input type="submit" value="submit">
+
+</form>
+<br><br>
+<table id="outtab" border="2" bordercolor="blue">
+    <tr>
+        <td colspan="2">
+            FORM OUTPUT
+        </td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mobile Number</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td></td>
+    </tr>
+</table>
+<button onclick="validateForm()">Display</button>
+</body>
+</html>

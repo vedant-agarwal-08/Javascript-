@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queston 7</title>
+  </head>
+  <body>
+    <div id="myList">
+      <h2>Product List</h2>
+      <label for="Product">Product:</label>
+      <select id="Product" name="Product"></select>
+      <button id="checkBtn">Check Availability</button>
+    </div>
+    <div class="details"></div>
+    
+  </body>
+  <script>
+    function loadXMLDoc() {
+      var xmlhttp;
+      if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          var ResponseFromFile = JSON.parse(xmlhttp.responseText);
+        let selectMenu = document.querySelector("#Product");
+        const { products } = ResponseFromFile;
+        console.log(products);
+        for (i in products) {
+          selectMenu.innerHTML += `<option
+value=${products[i].id}>${products[i].name}</option>`;
+        }
+        const CheckBtn = document.querySelector("#checkBtn");
+        const Details = document.querySelector(".details");
+        const check = function () {
+          const SelectedValue = selectMenu.value;
+          for (i in products) {
+            if (SelectedValue === String(i)) {
+              console.log(i);
+              Details.innerHTML += `<h1>Name: ${products[i - 1].name}</h1>`;
+              Details.innerHTML += `<h1>ProductId: ${products[i - 1].id}</h1>`;
+              Details.innerHTML += `<h1>Price: ${products[i - 1].price}</h1>`;
+              Details.innerHTML += `<h1>Stock: ${products[i - 1].stock}</h1>`;
+              Details.innerHTML += `<h1>Type: ${products[i - 1].type}</h1>`;
+              break;
+            } else {
+              console.log(SelectedValue);
+            }
+          }
+        };
+        CheckBtn.addEventListener("click", check);
+      };
+      xmlhttp.open("GET", "data_stored.json", true);
+      xmlhttp.send();
+    }
+    loadXMLDoc();
+  </script>
+</html>

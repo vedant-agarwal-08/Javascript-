@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question 2</title>
+<link
+href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200ita
+lic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800
+,800italic,900,900italic" rel="stylesheet" />
+<style>
+* {
+font-family: Poppins;
+margin: 0;
+padding: 0;
+}
+#clock {
+width: 100%;
+/* height: 30%; */
+font-size: 50px;
+font-weight: bold;
+text-align: center;
+/* margin: 50px auto; */
+padding-top: 6%;
+background-color: bisque;
+}
+.second {
+position: relative;
+}
+#image {
+position: absolute;
+top: 21%;
+left: 0;
+background-color: #aaa;
+width: 50%;
+}
+#color {
+position: absolute;
+top: 21%;
+left: 50%;
+width: 50%;
+background-color: #aca;
+height: 60vh;
+padding: 2% 4%;
+}
+label {
+display: inline-block;
+margin-bottom: 10px;
+}
+input[type="color"] {
+border: none;
+height: 30px;
+width: 30px;
+padding: 0;
+vertical-align: middle;
+}
+.slider {
+width: 259px;
+margin: 50px auto;
+}
+.slides {
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+scroll-behavior: smooth;
+-webkit-overflow-scrolling: touch;
+}
+img {
+scroll-snap-align: start;
+width: 100%;
+height: auto;
+}
+.controls {
+display: flex;
+justify-content: space-between;
+margin-top: 10px;
+}
+button {
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+}
+button:focus {
+outline: none;
+}
+.prev {
+transform: rotate(180deg);
+}
+</style>
+</head>
+<body>
+<div class="digital_clock" id="clock"></div>
+<div class="second">
+<div class="image_slider" id="image">
+<div class="slider">
+<div class="slides">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fnature%2F&psig=AOvVaw1OffwR200lv-f_lIQx1fj_&ust=1679466420166000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCICpg5Cy7P0CFQAAAAAdAAAAABAE" alt="Slide 1">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fphotos-images%2Fsilhouette-nature.html&psig=AOvVaw1OffwR200lv-f_lIQx1fj_&ust=1679466420166000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCICpg5Cy7P0CFQAAAAAdAAAAABAI" alt="Slide 2">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.viewbug.com%2Fblog%2Ftrees-and-silhouettes-photo-contest-finalists&psig=AOvVaw1OffwR200lv-f_lIQx1fj_&ust=1679466420166000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCICpg5Cy7P0CFQAAAAAdAAAAABAM" alt="Slide 3">
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.viewbug.com%2Fblog%2Ftrees-and-silhouettes-photo-contest-finalists&psig=AOvVaw1OffwR200lv-f_lIQx1fj_&ust=1679466420166000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCICpg5Cy7P0CFQAAAAAdAAAAABAR" alt="Slide 4">
+</div>
+<div class="controls">
+    <button class="prev">&lt;</button>
+    <button class="next">&gt;</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="color_picker" id="color">
+    <label for="colorPicker">Select a color:</label>
+    <input type="color" id="colorPicker">
+    </div>
+    </div>
+    <script>
+    function updateClock() {
+    const clock = document.getElementById("clock");
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    clock.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    //Color Picker
+    const colorPicker = document.getElementById("colorPicker");
+    colorPicker.addEventListener("input", (event) => {
+    const color = event.target.value;
+    const bg = document.querySelector('.color_picker');
+    bg.style.backgroundColor = color;
+    });
+    //Image Slider
+    const slides = document.querySelector(".slides");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    let currentSlide = 0;
+    function showSlide(n) {
+    const slideWidth = slides.clientWidth;
+    const maxSlides = slides.children.length;
+    currentSlide = (n + maxSlides) % maxSlides;
+slides.scrollTo({
+left: currentSlide * slideWidth,
+behavior: "smooth"
+});
+}
+prevButton.addEventListener("click", () => {
+showSlide(currentSlide - 1);
+});
+nextButton.addEventListener("click", () => {
+showSlide(currentSlide + 1);
+});
+showSlide(currentSlide);
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        
+        $(document).ready(function(){
+            $("#add").click(function(){
+                var x=document.getElementById("input").value;
+                $("#list").append('<li>'+x+'</li>');
+                // return false;
+            })
+        })
+        $(document).ready(function(){
+            $("#remove").click(function(){
+                var y=document.getElementById("input").value;
+                $("#list").find().remove()
+            })
+        })
+        $(document).ready(function(){
+            $(function(){
+                // $("ul li:even").css("background-color","yellow");
+                $("#list:odd").css("background-color","yellow")
+            })
+        })
+        $(document).ready(function(){
+            $("#add").click(function(){
+                $("#input").reset();
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>My super nifty to-do list</h1> <br>
+    <ul id="list"></ul>
+    <input id="input" type="text">
+    <button id="add">Add</button>
+    <button id="remove">Remove</button>
+</body>
+</html>

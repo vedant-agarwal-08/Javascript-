@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 5</title>
+    <style>
+      .yel {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My super nifty to do list</h1>
+    <ul></ul>
+    <input type="text" id="textInput" />
+    <button id="add">add</button>
+    <button id="remove">remove</button>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var items = [];
+      var ulist = $("ul");
+      var list = function (i, x) {
+        ulist.append(`<li id=${x}>${i}</li>`);
+      };
+      var colist = function (i, x) {
+        ulist.append(`<li id=${x} class="yel">${i}</li>`);
+      };
+      var color = function () {
+        // $("ul li").css("background-color", "white");
+        $("ul li").remove();
+        for (i in items) {
+          if (i % 2 == 0) {
+            list(items[i], i);
+          } else {
+            colist(items[i], i);
+          }
+        }
+        // $("ul li:nth-child(2)").css("background-color", "yellow");
+      };
+      var i = 0;
+      var addBtn = $("#add");
+      addBtn.click(function () {
+        var inputVal = $("input").val();
+        $("input").val("");
+        items.push(inputVal);
+        // list(items[i], i);
+        // i++;
+        color();
+      });
+      var remBtn = $("#remove");
+      remBtn.click(function () {
+        // i -= 1;
+        var inputVal = $("input").val();
+        var newItems = [];
+        for (y in items) {
+          if (inputVal.toLowerCase() != items[y].toLowerCase()) {
+            newItems.push(items[y]);
+          }
+        }
+        items = newItems;
+        // var x = 0;
+        // if (inputVal.toLowerCase() == items[y].toLowerCase()) {
+        // var items = items.filter(function(inputVal) {
+        // return inputVal.toLowerCase() !=
+        items[y].toLowerCase();
+        // })
+        // var last = $(`#${y}`);
+        // last.remove();
+        // break;
+        // }
+        $("input").val("");
+        color();
+      });
+    });
+  </script>
+</html>

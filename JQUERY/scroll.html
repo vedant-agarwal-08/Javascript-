@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+var x = 0;
+$(document).ready(function(){
+$("div").scroll(function(){
+$("span").text(x+= 1);
+});
+});
+</script>
+</head>
+<body>
+<p>Try the scrollbar in the div</p>
+<div style="border:1px solid red;width:100px;height:75px;overflow:scroll;">
+grapes <br/>
+kiwi <br/>
+mango <br/>
+banana <br/>
+</div>
+<p>Scrolled <span>0</span> times.</p>
+</body>
+</html>

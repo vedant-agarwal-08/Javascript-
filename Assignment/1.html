@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 1</title>
+  </head>
+  <body>
+    <script>
+      function calculateCharges(hours) {
+        if (hours <= 3) {
+          return 2.0;
+        } else if (hours <= 24) {
+          return 2.0 + (hours - 3) * 0.5;
+        } else {
+          return 10.0;
+        }
+      }
+      let totalReceipts = 0;
+      let hours = prompt("Enter hours parked (or 'done' to finish):");
+      hours = parseFloat(hours);
+      if (isNaN(hours) || hours < 0) {
+        alert("Invalid input!");
+      }
+      let charge = calculateCharges(hours);
+      totalReceipts += charge;
+      alert(`Charge for ${hours} hours: $${charge.toFixed(2)}`);
+      alert(`Total receipts: $${totalReceipts.toFixed(2)}`);
+      document.write(`<h1>The total for the user was
+${totalReceipts}$</h1>`);
+    </script>
+  </body>
+</html>

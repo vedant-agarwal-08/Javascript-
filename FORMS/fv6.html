@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            x=document.myForm.fname.value;
+            y=document.myForm.mno.value;
+            z=document.get
+            if(test(x)){
+                if(test1(y)){
+                    x2=document.getElementsByTagName("h1")[0].innerHTML;
+                    document.getElementsByTagName("h1")[0].innerHTML=x2+x;
+                    x1=document.getElementsByTagName("h1")[1].innerHTML;
+                    document.getElementsByTagName("h1")[1].innerHTML=x1+y;
+                    return true;
+                }
+            }
+            return false;
+        }
+        function test(x){
+            if(x.length==0){
+                alert("Name must be filled");
+                return false;
+            }
+            return true;
+        }
+        function test1(y){
+            if(x.length==0){
+                alert("Mobile number must be filled out");
+                return false;
+            }
+            return true;
+        }
+        
+    </script>
+</head>
+
+<body>
+    <form name="myForm" onsubmit=" event.preventDefault(); return validateForm()" method="post">
+        Name: <input type="text" name="fname">
+        <br><br>
+        Mobile Number: <input type="number" name="mno">
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+    <h1>FirstName</h1>
+    <h1>Mobile Number:</h1>
+    <button onclick="validateForm()" id="submit">Display</button>
+</body>
+</html>

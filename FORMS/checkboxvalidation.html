@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateForm(){
+            var y=document.myForm.course;
+            cvail(y);
+        }
+        function cvail(y){
+            var x=1;
+            var flag=0;
+            for(var i=0;i<y.length;i++){
+                if (y[i].checked){
+                    flag=incre(flag)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+    Select atleast two Elective: <br><br>
+    <input type="checkbox" name="course" value="cloud computing">Cloud computing
+    <input type="checkbox" name="course" value="Data Analytics">Data Analytics <br>
+    <input type="checkbox" name="course" value="Big data">Big Data <br>
+    <input type="checkbox" name="course" value="Cryptography">Cryptography <br>
+</form>
+<br><br>
+<table id="outtab">
+    <tr>
+        <td colspan="2">FORM OUTPUT</td>
+        
+    </tr>
+    <tr>
+        <td>Course 1</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Course 2</td>
+        <td></td>
+    </tr>
+</table>
+<button onclick="validateForm()"></button>
+</body>
+</html>

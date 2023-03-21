@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+       const name=document.getElementById('name');
+       const password=document.getElementById('password'); 
+       const form=document.getElementById('form')
+       const errorElement=document.getElementById('error')
+       form.addEventListener('submit',(e)=>{
+        let messages=[]
+        if(name.value===''||name.value==null){
+            messages.push('Name is required')
+        }
+        if(password.length<6){
+            messages.push('password must be longer than 6 characters');
+        }
+        if(messages.length>0){
+            e.preventDefault();
+            errorElement.innerText=messages.join(',')
+        }
+        
+       })
+    </script>
+</head>
+<body>
+    <div id="error"></div>
+    <form action="/" method="get" id="form">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
